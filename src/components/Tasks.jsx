@@ -3,7 +3,7 @@ export default function Tasks() {
     <div>
       <p>Wash the dishes</p>
       <p>Feed Busya</p>
-      <p>Send out HW</p>
+      {/* <p>Send out HW</p> */}
     </div>
   );
 }
