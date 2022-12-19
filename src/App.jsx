@@ -5,16 +5,23 @@ import Today from "./components/Today";
 import { Link, Route, Routes } from "react-router-dom";
 
 import Header from "./components/Header";
+import Week from "./components/Week";
 
 function App() {
   return (
-    <div className="App">
-      <Header />
+    <div className="app">
+      <Link to="/">
+        <h1 className="header">TO-DO LiST</h1>
+      </Link>
+      <div className="content">
+        <Header />
 
-      <Routes>
-        <Route path="/home" element={<Home />} />
-        <Route path="/today" element={<Today />} />
-      </Routes>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/today" element={<Today />} />
+          <Route path="/week" element={<Week />} />
+        </Routes>
+      </div>
     </div>
   );
 }

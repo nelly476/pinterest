@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
 
-export default function Header() {
+export default function Week() {
   return (
     <div>
-      <Link to="/">
+      {/* <Link to="/">
         <h2>Home</h2>
       </Link>
       <Link to="/today">
@@ -11,7 +11,9 @@ export default function Header() {
       </Link>
       <Link to="/week">
         <h2>Week</h2>
-      </Link>
+      </Link> */}
+
+      <p>week</p>
     </div>
   );
 }
