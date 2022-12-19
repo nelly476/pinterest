@@ -1,17 +1,20 @@
 import { useState } from "react";
-import reactLogo from "./assets/react.svg";
 import "./App.css";
-import Sidebar from "./components/Sidebar";
-import Tasks from "./components/Tasks";
+import Home from "./components/Home";
+import Today from "./components/Today";
+import { Link, Route, Routes } from "react-router-dom";
+
+import Header from "./components/Header";
 
 function App() {
   return (
     <div className="App">
-      <h1>TO-DO LiST</h1>
-      <div className="content">
-        <Sidebar />
-        <Tasks />
-      </div>
+      <Header />
+
+      <Routes>
+        <Route path="/home" element={<Home />} />
+        <Route path="/today" element={<Today />} />
+      </Routes>
     </div>
   );
 }
