@@ -6,16 +6,16 @@ export default function Note({ info }) {
     <div className="note--line">
       {finished ? (
         <i
-          className="fa-solid fa-square-check"
+          className="fa-solid fa-square-check colored"
           onClick={() => setFinished((prev) => !prev)}
         ></i>
       ) : (
         <i
-          className="fa-regular fa-square-check"
+          className="fa-regular fa-square"
           onClick={() => setFinished((prev) => !prev)}
         ></i>
       )}
-      <h2>{info.task}</h2>
+      <p>{info.task}</p>
     </div>
   );
 }

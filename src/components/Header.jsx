@@ -4,19 +4,15 @@ import React, { useState } from "react";
 // import { NoteContext } from "../components/NoteContext";
 
 export default function Header() {
-  const [noteInput, setNoteInput] = useState("");
-  // const context = React.useContext(NoteContext);
+  // const [noteInput, setNoteInput] = useState("");
+  // // const context = React.useContext(NoteContext);
 
-  function handleChange(e) {
-    setNoteInput(e.target.value);
-  }
+  // function handleChange(e) {
+  //   setNoteInput(e.target.value);
+  // }
 
   return (
-    <div>
-      <form>
-        <input type="text" onChange={handleChange} />
-        <button onClick={() => addNote()}>Add</button>
-      </form>
+    <div className="side--bar">
       <Link to="/">
         <h2>Home</h2>
       </Link>

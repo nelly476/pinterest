@@ -4,6 +4,7 @@ html {
   padding: 0;
   font-family: "Roboto", sans-serif;
   height: 100vh;
+  font-weight: lighter;
 }
 
 #root {
@@ -30,14 +31,14 @@ a:active {
 
 .content {
   display: flex;
-  background-color: #ffe6f7;
+  height: 100%;
+
   /* color: #937dc2; */
 }
 
 .app {
   width: 100%;
   height: 100%;
-  background-color: #ffe6f7;
 }
 
 .header--section {
@@ -53,18 +54,49 @@ a:active {
   font-size: 2.1em;
 }
 
+.side--bar {
+  padding: 0 5em;
+  font-weight: 20px;
+  background-color: #eff5f597;
+  /* background-color: #ffe6f7; */
+}
+
+h2 {
+  font-weight: lighter;
+}
+
+/* Add a task section */
+
+.add--section {
+  padding: 2em;
+}
+
 /* Notes design */
 
 .note--line {
   display: flex;
   align-items: center;
-  column-gap: 1em;
+  justify-content: flex-start;
+  column-gap: 0.7em;
+  padding-left: 1em;
+  border-radius: 8px;
+  width: 70%;
+  margin: 1.2em auto;
+  -webkit-box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.29);
+  -moz-box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.29);
+  box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.29);
 }
 
-.fa-square-check {
-  font-size: 2em;
+.fa-square-check,
+.fa-square {
+  font-size: 1.4em;
+  color: #29d71c;
 }
 
 i {
   cursor: pointer;
+}
+
+.tasks--section {
+  width: 100%;
 }

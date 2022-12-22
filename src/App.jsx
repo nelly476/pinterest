@@ -6,6 +6,7 @@ import { Link, Route, Routes } from "react-router-dom";
 
 import Header from "./components/Header";
 import Week from "./components/Week";
+import TaskInput from "./components/TaskInput";
 
 function App() {
   return (
@@ -16,14 +17,18 @@ function App() {
           <h1>TO-DO LiST</h1>
         </span>
       </Link>
+
       <div className="content">
         <Header />
 
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/today" element={<Today />} />
-          <Route path="/week" element={<Week />} />
-        </Routes>
+        <div className="tasks--section">
+          <TaskInput />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/today" element={<Today />} />
+            <Route path="/week" element={<Week />} />
+          </Routes>
+        </div>
       </div>
     </div>
   );
