@@ -1,8 +1,22 @@
 import { Link } from "react-router-dom";
+import React, { useState } from "react";
+
+// import { NoteContext } from "../components/NoteContext";
 
 export default function Header() {
+  const [noteInput, setNoteInput] = useState("");
+  // const context = React.useContext(NoteContext);
+
+  function handleChange(e) {
+    setNoteInput(e.target.value);
+  }
+
   return (
     <div>
+      <form>
+        <input type="text" onChange={handleChange} />
+        <button onClick={() => addNote()}>Add</button>
+      </form>
       <Link to="/">
         <h2>Home</h2>
       </Link>

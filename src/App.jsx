@@ -11,7 +11,10 @@ function App() {
   return (
     <div className="app">
       <Link to="/">
-        <h1 className="header">TO-DO LiST</h1>
+        <span className="header--section">
+          <i class="fa-solid fa-bars"></i>
+          <h1>TO-DO LiST</h1>
+        </span>
       </Link>
       <div className="content">
         <Header />

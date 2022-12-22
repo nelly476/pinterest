@@ -2,12 +2,12 @@ body,
 html {
   margin: 0;
   padding: 0;
-  font-family: "Pacifico", cursive;
+  font-family: "Roboto", sans-serif;
+  height: 100vh;
 }
 
 #root {
-  display: flex;
-  justify-content: center;
+  height: 100%;
 }
 
 a:link {
@@ -30,16 +30,41 @@ a:active {
 
 .content {
   display: flex;
+  background-color: #ffe6f7;
+  /* color: #937dc2; */
 }
 
 .app {
-  width: 80%;
+  width: 100%;
+  height: 100%;
+  background-color: #ffe6f7;
 }
 
-.header {
-  width: 100%;
-  background-color: #7dd3fc;
-  margin: 0;
-  padding: 0.6em;
-  box-sizing: border-box;
+.header--section {
+  display: flex;
+  align-items: center;
+  background-color: #c689c6;
+  color: white;
+  column-gap: 0.5em;
+  padding-left: 0.5em;
+}
+
+.header--section i {
+  font-size: 2.1em;
+}
+
+/* Notes design */
+
+.note--line {
+  display: flex;
+  align-items: center;
+  column-gap: 1em;
+}
+
+.fa-square-check {
+  font-size: 2em;
+}
+
+i {
+  cursor: pointer;
 }
