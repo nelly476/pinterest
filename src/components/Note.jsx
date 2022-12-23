@@ -2,6 +2,7 @@ import React, { useState } from "react";
 
 export default function Note({ info }) {
   const [finished, setFinished] = React.useState(info.finished);
+
   return (
     <div className="note--line">
       {finished ? (

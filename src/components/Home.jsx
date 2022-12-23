@@ -9,17 +9,28 @@ import notes from "./data";
 export default function Home(props) {
   // const context = useContext(NoteContext);
 
+  const notesExampleElem = notes.map((item) => {
+    // console.log(item);
+    return <Note info={item.task} />;
+  });
+
   // console.log(props.newNotes);
 
-  const notesElem = props.newNotes.map((item) => {
-    // console.log(item);
-    return <Note info={item} />;
-  });
+  const userNotes =
+    props.newNotes &&
+    props.newNotes.map((item) => {
+      return <Note info={item} />;
+    });
 
   // const noteElem = data.map((item) => {
   //   // console.log(item);
   //   return <Note info={item} key={item.id} />;
   // });
 
-  return <div>{notesElem}</div>;
+  return (
+    <div>
+      {notesExampleElem}
+      {userNotes}
+    </div>
+  );
 }

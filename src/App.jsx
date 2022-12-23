@@ -11,8 +11,35 @@ import TaskInput from "./components/TaskInput";
 function App() {
   const [noteInput, setNoteInput] = useState("");
   const [notes, setNotes] = useState([]);
+  const [notesFromStorage, setNotesFromStorage] = useState(
+    JSON.parse(localStorage.getItem("allNotes"))
+  );
 
-  let notesFromStorage = JSON.parse(localStorage.getItem("allNotes"));
+  // let notesFromStorage = JSON.parse(localStorage.getItem("allNotes"));
+
+  useEffect(() => {
+    if (notesFromStorage) {
+      setNotes(notesFromStorage);
+    }
+  }, []);
+
+  // localStorage.clear();
+
+  useEffect(() => {
+    localStorage.setItem("allNotes", JSON.stringify(notes));
+    setNotesFromStorage(JSON.parse(localStorage.getItem("allNotes")));
+
+    // console.log(notesFromStorage);
+  }, [notes]);
+
+  // useEffect(() => {
+  //   localStorage.setItem("allNotes", JSON.stringify(notes));
+  //   console.log(notesFromStorage);
+  //   // if (notesFromStorage) {
+  //   //   setNotes(notesFromStorage);
+  //   // }
+  //   // console.log(notesFromStorage);
+  // }, [notes]);
 
   function handleChange(e) {
     setNoteInput(e.target.value);
@@ -21,8 +48,7 @@ function App() {
   function addNote(event) {
     event.preventDefault();
     setNotes((prev) => [...prev, noteInput]);
-    localStorage.setItem("allNotes", JSON.stringify(notes));
-    // console.log(notesFromStorage);
+
     // console.log(notes);
   }
 
