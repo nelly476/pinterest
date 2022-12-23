@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./App.css";
 import Home from "./components/Home";
 import Today from "./components/Today";
@@ -9,11 +9,39 @@ import Week from "./components/Week";
 import TaskInput from "./components/TaskInput";
 
 function App() {
+  const [noteInput, setNoteInput] = useState("");
+  const [notes, setNotes] = useState([]);
+
+  let notesFromStorage = JSON.parse(localStorage.getItem("allNotes"));
+
+  function handleChange(e) {
+    setNoteInput(e.target.value);
+  }
+
+  function addNote(event) {
+    event.preventDefault();
+    setNotes((prev) => [...prev, noteInput]);
+    localStorage.setItem("allNotes", JSON.stringify(notes));
+    // console.log(notesFromStorage);
+    // console.log(notes);
+  }
+
+  // useEffect(() => {
+  //   localStorage.setItem("allNotes", JSON.stringify(notes));
+  //   console.log(notes);
+  //   console.log(notesFromStorage);
+  // }, [notes]);
+
+  // function addNote(data) {
+  //   setNotes((prev) => {
+  //     return [...prev, data];
+  //   });
+  // }
   return (
     <div className="app">
       <Link to="/">
         <span className="header--section">
-          <i class="fa-solid fa-bars"></i>
+          <i className="fa-solid fa-bars"></i>
           <h1>TO-DO LiST</h1>
         </span>
       </Link>
@@ -22,9 +50,13 @@ function App() {
         <Header />
 
         <div className="tasks--section">
-          <TaskInput />
+          <form className="add--section" onSubmit={addNote}>
+            <input type="text" onChange={handleChange} />
+
+            <button>Add a new task</button>
+          </form>
           <Routes>
-            <Route path="/" element={<Home />} />
+            <Route path="/" element={<Home newNotes={notesFromStorage} />} />
             <Route path="/today" element={<Today />} />
             <Route path="/week" element={<Week />} />
           </Routes>

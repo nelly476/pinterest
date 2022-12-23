@@ -15,7 +15,7 @@ export default function Note({ info }) {
           onClick={() => setFinished((prev) => !prev)}
         ></i>
       )}
-      <p>{info.task}</p>
+      <p>{info}</p>
     </div>
   );
 }
