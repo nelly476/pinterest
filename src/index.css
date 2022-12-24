@@ -78,6 +78,27 @@ h2 {
   width: 100%;
 }
 
+.low--priority,
+.medium--priority,
+.high--priority {
+  padding: 0.2em;
+  font-size: smaller;
+  /* font-weight: bolder; */
+  margin-right: 0.3em;
+}
+
+.low--priority {
+  border: 2px solid #29d71c;
+}
+
+.medium--priority {
+  border: 2px solid yellow;
+}
+
+.high--priority {
+  border: 2px solid red;
+}
+
 .add--section input {
   padding: 0.3em 0;
   margin-right: 2em;

@@ -79,9 +79,9 @@ function App() {
           <div className="task--input--section">
             <span>
               <p>Priority:</p>
-              <span>LOW</span>
-              <span>MEDIUM</span>
-              <span>HIGH</span>
+              <span className="low--priority">LOW</span>
+              <span className="medium--priority">MEDIUM</span>
+              <span className="high--priority">HIGH</span>
             </span>
             <form className="add--section" onSubmit={addNote}>
               <input type="text" onChange={handleChange} />
