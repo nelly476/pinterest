@@ -76,11 +76,20 @@ function App() {
         <Header />
 
         <div className="tasks--section">
-          <form className="add--section" onSubmit={addNote}>
-            <input type="text" onChange={handleChange} />
+          <div className="task--input--section">
+            <span>
+              <p>Priority:</p>
+              <span>LOW</span>
+              <span>MEDIUM</span>
+              <span>HIGH</span>
+            </span>
+            <form className="add--section" onSubmit={addNote}>
+              <input type="text" onChange={handleChange} />
 
-            <button>Add a new task</button>
-          </form>
+              <button>Add a new task</button>
+            </form>
+          </div>
+
           <Routes>
             <Route path="/" element={<Home newNotes={notesFromStorage} />} />
             <Route path="/today" element={<Today />} />
