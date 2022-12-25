@@ -1,49 +1,28 @@
-import { useState, useEffect, useRef } from "react";
 import "./App.css";
 import Home from "./components/Home";
 import Today from "./components/Today";
 import { Link, Route, Routes } from "react-router-dom";
+import { useEffect, useState } from "react";
 
 import Header from "./components/Header";
 import Week from "./components/Week";
-// import TaskInput from "./components/TaskInput";
+import TaskInput from "./components/TaskInput";
+import notes from "./components/data";
 
 function App() {
-  const [noteInput, setNoteInput] = useState("");
-  const [notes, setNotes] = useState([]);
-  const [notesFromStorage, setNotesFromStorage] = useState(
-    JSON.parse(localStorage.getItem("allNotes"))
-  );
+  const [data, setData] = useState("");
+  // const [notesFromStorage, setNotesFromStorage] = useState(
+  //   JSON.parse(localStorage.getItem("allNotes"))
+  // );
 
-  const [priority, setPriority] = useState("");
-  const inputRef = useRef(null);
+  // console.log(notesFromStorage);
 
-  useEffect(() => {
-    if (notesFromStorage) {
-      setNotes(notesFromStorage);
-    }
-  }, []);
+  // useEffect(()=> {
 
-  // localStorage.clear();
+  // }, [])
 
-  useEffect(() => {
-    localStorage.setItem("allNotes", JSON.stringify(notes));
-    setNotesFromStorage(JSON.parse(localStorage.getItem("allNotes")));
-  }, [notes]);
-
-  function handleChange(e) {
-    setNoteInput(e.target.value);
-  }
-
-  function addNote(event) {
-    event.preventDefault();
-    inputRef.current.focus();
-    setNotes((prev) => [...prev, { note: noteInput, priority: priority }]);
-    setNoteInput("");
-  }
-
-  function addPriority(priority) {
-    setPriority(priority);
+  function getNewNote(notes) {
+    setData(notes);
   }
 
   return (
@@ -57,62 +36,16 @@ function App() {
 
       <div className="content">
         <Header />
+        <TaskInput getNewNote={getNewNote} />
 
-        <div className="tasks--section">
-          <div className="task--input--section">
-            <span className="priority--section">
-              <p>Priority:</p>
-              <button
-                onClick={() => addPriority("low")}
-                className={
-                  priority === "low"
-                    ? "priority low--button low--reverse"
-                    : "priority low--button"
-                }
-              >
-                LOW
-              </button>
-              <button
-                onClick={() => addPriority("medium")}
-                className={
-                  priority === "medium"
-                    ? "priority medium--button medium--reverse"
-                    : "priority medium--button"
-                }
-              >
-                MEDIUM
-              </button>
-              <button
-                onClick={() => addPriority("high")}
-                className={
-                  priority === "high"
-                    ? "priority high--button high--reverse"
-                    : "priority high--button"
-                }
-              >
-                HIGH
-              </button>
-            </span>
-            <form className="add--section" onSubmit={addNote}>
-              <input
-                type="text"
-                onChange={handleChange}
-                value={noteInput}
-                ref={inputRef}
-              />
-
-              <button>Add a new task</button>
-            </form>
-          </div>
-
-          <Routes>
-            <Route path="/" element={<Home newNotes={notesFromStorage} />} />
-            <Route path="/today" element={<Today />} />
-            <Route path="/week" element={<Week />} />
-          </Routes>
-        </div>
+        <Routes>
+          <Route path="/" element={<Home newNotes={data} />} />
+          <Route path="/today" element={<Today />} />
+          <Route path="/week" element={<Week />} />
+        </Routes>
       </div>
     </div>
+    // </div>
   );
 }
 
