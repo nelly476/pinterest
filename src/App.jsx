@@ -11,15 +11,6 @@ import notes from "./components/data";
 
 function App() {
   const [data, setData] = useState("");
-  // const [notesFromStorage, setNotesFromStorage] = useState(
-  //   JSON.parse(localStorage.getItem("allNotes"))
-  // );
-
-  // console.log(notesFromStorage);
-
-  // useEffect(()=> {
-
-  // }, [])
 
   function getNewNote(notes) {
     setData(notes);
@@ -36,16 +27,17 @@ function App() {
 
       <div className="content">
         <Header />
-        <TaskInput getNewNote={getNewNote} />
+        <div className="tasks--section">
+          <TaskInput getNewNote={getNewNote} />
 
-        <Routes>
-          <Route path="/" element={<Home newNotes={data} />} />
-          <Route path="/today" element={<Today />} />
-          <Route path="/week" element={<Week />} />
-        </Routes>
+          <Routes>
+            <Route path="/" element={<Home newNotes={data} />} />
+            <Route path="/today" element={<Today />} />
+            <Route path="/week" element={<Week />} />
+          </Routes>
+        </div>
       </div>
     </div>
-    // </div>
   );
 }
 

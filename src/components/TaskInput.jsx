@@ -8,7 +8,6 @@ export default function TaskInput({ getNewNote }) {
   );
 
   const [priority, setPriority] = useState("");
-  // const [currentNotes, setCurrentNotes] = useState("");
   const inputRef = useRef(null);
 
   useEffect(() => {
@@ -42,52 +41,51 @@ export default function TaskInput({ getNewNote }) {
   }
 
   return (
-    <div className="tasks--section">
-      <div className="task--input--section">
-        <span className="priority--section">
-          <p>Priority:</p>
-          <button
-            onClick={() => addPriority("low")}
-            className={
-              priority === "low"
-                ? "priority low--button low--reverse"
-                : "priority low--button"
-            }
-          >
-            LOW
-          </button>
-          <button
-            onClick={() => addPriority("medium")}
-            className={
-              priority === "medium"
-                ? "priority medium--button medium--reverse"
-                : "priority medium--button"
-            }
-          >
-            MEDIUM
-          </button>
-          <button
-            onClick={() => addPriority("high")}
-            className={
-              priority === "high"
-                ? "priority high--button high--reverse"
-                : "priority high--button"
-            }
-          >
-            HIGH
-          </button>
-        </span>
-        <form className="add--section" onSubmit={addNote}>
-          <input
-            type="text"
-            onChange={handleChange}
-            value={noteInput}
-            ref={inputRef}
-          />
+    <div className="task--input--section">
+      <span className="priority--section">
+        <p>Priority:</p>
+        <button
+          onClick={() => addPriority("low")}
+          className={
+            priority === "low"
+              ? "priority low--button low--reverse"
+              : "priority low--button"
+          }
+        >
+          LOW
+        </button>
+        <button
+          onClick={() => addPriority("medium")}
+          className={
+            priority === "medium"
+              ? "priority medium--button medium--reverse"
+              : "priority medium--button"
+          }
+        >
+          MEDIUM
+        </button>
+        <button
+          onClick={() => addPriority("high")}
+          className={
+            priority === "high"
+              ? "priority high--button high--reverse"
+              : "priority high--button"
+          }
+        >
+          HIGH
+        </button>
+      </span>
+      <form className="add--section" onSubmit={addNote}>
+        <input
+          type="text"
+          onChange={handleChange}
+          value={noteInput}
+          ref={inputRef}
+        />
 
-          <button>Add a new task</button>
-        </form>
-      </div>
+        <button>Add a new task</button>
+      </form>
     </div>
+    // </div>
   );
 }
