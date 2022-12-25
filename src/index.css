@@ -69,40 +69,58 @@ h2 {
 
 .task--input--section {
   display: flex;
+  justify-content: center;
   /* width: 100%; */
 }
 
 .add--section {
   text-align: center;
-  padding: 2em;
-  width: 100%;
+  padding: 2em 0.5em;
+  /* width: 90%; */
+}
+
+.priority--section {
+  display: flex;
+  align-items: center;
+  column-gap: 0.3em;
 }
 
 .low--priority,
 .medium--priority,
 .high--priority {
-  padding: 0.2em;
+  padding: 0.3em;
   font-size: smaller;
   /* font-weight: bolder; */
   margin-right: 0.3em;
+  background-color: white;
+  border-radius: 6px;
 }
 
 .low--priority {
   border: 2px solid #29d71c;
+  color: #29d71c;
+  margin-left: 0.4em;
 }
 
 .medium--priority {
-  border: 2px solid yellow;
+  border: 2px solid #ffbf00;
+  color: #fed049;
 }
 
 .high--priority {
   border: 2px solid red;
+  color: red;
+}
+
+.add--section {
+  margin: 0;
+  display: flex;
 }
 
 .add--section input {
   padding: 0.3em 0;
   margin-right: 2em;
-  width: 50%;
+  width: 23em;
 }
 
 .add--section button {

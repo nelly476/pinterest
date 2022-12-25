@@ -77,11 +77,11 @@ function App() {
 
         <div className="tasks--section">
           <div className="task--input--section">
-            <span>
+            <span className="priority--section">
               <p>Priority:</p>
-              <span className="low--priority">LOW</span>
-              <span className="medium--priority">MEDIUM</span>
-              <span className="high--priority">HIGH</span>
+              <button className="low--priority">LOW</button>
+              <button className="medium--priority">MEDIUM</button>
+              <button className="high--priority">HIGH</button>
             </span>
             <form className="add--section" onSubmit={addNote}>
               <input type="text" onChange={handleChange} />
