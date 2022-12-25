@@ -1,4 +1,5 @@
 import react, { useEffect, useState, useRef } from "react";
+import WarningModal from "../components/WarningModal";
 
 export default function TaskInput({ getNewNote }) {
   const [noteInput, setNoteInput] = useState("");
@@ -8,6 +9,7 @@ export default function TaskInput({ getNewNote }) {
   );
 
   const [priority, setPriority] = useState("");
+  const [showModal, setShowModal] = useState(false);
   const inputRef = useRef(null);
 
   useEffect(() => {
@@ -31,18 +33,28 @@ export default function TaskInput({ getNewNote }) {
 
   function addNote(event) {
     event.preventDefault();
-    inputRef.current.focus();
-    setNotes((prev) => [...prev, { note: noteInput, priority: priority }]);
-    setNoteInput("");
+    if (priority) {
+      inputRef.current.focus();
+      setNotes((prev) => [...prev, { note: noteInput, priority: priority }]);
+      setNoteInput("");
+      setShowModal(false);
+    } else {
+      setShowModal(true);
+      setTimeout(() => {
+        setShowModal(false);
+      }, 2000);
+    }
   }
 
   function addPriority(priority) {
     setPriority(priority);
+    inputRef.current.focus();
   }
 
   return (
     <div className="task--input--section">
       <span className="priority--section">
+        {showModal && <WarningModal />}
         <p>Priority:</p>
         <button
           onClick={() => addPriority("low")}

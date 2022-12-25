@@ -7,7 +7,6 @@ import { useEffect, useState } from "react";
 import Header from "./components/Header";
 import Week from "./components/Week";
 import TaskInput from "./components/TaskInput";
-import notes from "./components/data";
 
 function App() {
   const [data, setData] = useState("");
@@ -27,6 +26,7 @@ function App() {
 
       <div className="content">
         <Header />
+
         <div className="tasks--section">
           <TaskInput getNewNote={getNewNote} />
 

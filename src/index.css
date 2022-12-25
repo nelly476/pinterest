@@ -83,6 +83,7 @@ h2 {
   display: flex;
   align-items: center;
   column-gap: 0.3em;
+  position: relative;
 }
 
 .priority {
@@ -197,4 +198,25 @@ button {
   /* display: flex;
   flex-direction: column;
   align-items: center; */
+}
+
+/* Warning Modal */
+
+.warning--modal {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  position: absolute;
+  top: -3.8em;
+  left: 22%;
+  background-color: white;
+  -webkit-box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.29);
+  -moz-box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.29);
+  box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.29);
+  border-radius: 8px;
+  padding: 0.4em;
+}
+
+.warning--modal h3 {
+  margin: 0.2em;
 }
