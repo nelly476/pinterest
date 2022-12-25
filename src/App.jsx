@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import "./App.css";
 import Home from "./components/Home";
 import Today from "./components/Today";
@@ -16,6 +16,7 @@ function App() {
   );
 
   const [priority, setPriority] = useState("");
+  const inputRef = useRef(null);
 
   useEffect(() => {
     if (notesFromStorage) {
@@ -36,7 +37,9 @@ function App() {
 
   function addNote(event) {
     event.preventDefault();
+    inputRef.current.focus();
     setNotes((prev) => [...prev, { note: noteInput, priority: priority }]);
+    setNoteInput("");
   }
 
   function addPriority(priority) {
@@ -91,7 +94,12 @@ function App() {
               </button>
             </span>
             <form className="add--section" onSubmit={addNote}>
-              <input type="text" onChange={handleChange} />
+              <input
+                type="text"
+                onChange={handleChange}
+                value={noteInput}
+                ref={inputRef}
+              />
 
               <button>Add a new task</button>
             </form>
