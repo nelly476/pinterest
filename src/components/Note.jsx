@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 
-export default function Note({ info }) {
-  const [finished, setFinished] = React.useState(info.finished);
+export default function Note({ info, priority }) {
+  const [finished, setFinished] = React.useState(false);
 
   return (
-    <div className="note--line">
+    <div className={`note--line ${priority}`}>
       {finished ? (
         <i
           className="fa-solid fa-square-check colored"

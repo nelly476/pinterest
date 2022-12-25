@@ -85,32 +85,49 @@ h2 {
   column-gap: 0.3em;
 }
 
-.low--priority,
-.medium--priority,
-.high--priority {
+.priority {
   padding: 0.3em;
   font-size: smaller;
-  /* font-weight: bolder; */
+  font-weight: 550;
   margin-right: 0.3em;
   background-color: white;
   border-radius: 6px;
 }
 
-.low--priority {
+/* MUST KEEP ORDER */
+
+.low--button {
   border: 2px solid #29d71c;
   color: #29d71c;
   margin-left: 0.4em;
 }
 
-.medium--priority {
+.low--reverse {
+  color: white;
+  background-color: #29d71c;
+}
+
+.medium--button {
   border: 2px solid #ffbf00;
   color: #fed049;
 }
 
-.high--priority {
+.medium--reverse {
+  color: white;
+  background-color: #ffbf00;
+}
+
+.high--button {
   border: 2px solid red;
   color: red;
 }
+
+.high--reverse {
+  color: white;
+  background-color: red;
+}
+
+/*  */
 
 .add--section {
   margin: 0;
@@ -145,11 +162,23 @@ button:hover {
   column-gap: 0.7em;
   padding-left: 1em;
   border-radius: 8px;
-  width: 70%;
+  width: 60%;
   margin: 1.2em auto;
   -webkit-box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.29);
   -moz-box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.29);
   box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.29);
+}
+
+.high {
+  border-left: 8px solid red;
+}
+
+.medium {
+  border-left: 8px solid #ffbf00;
+}
+
+.low {
+  border-left: 8px solid #29d71c;
 }
 
 .fa-square-check,

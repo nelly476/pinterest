@@ -6,7 +6,7 @@ import { Link, Route, Routes } from "react-router-dom";
 
 import Header from "./components/Header";
 import Week from "./components/Week";
-import TaskInput from "./components/TaskInput";
+// import TaskInput from "./components/TaskInput";
 
 function App() {
   const [noteInput, setNoteInput] = useState("");
@@ -15,7 +15,7 @@ function App() {
     JSON.parse(localStorage.getItem("allNotes"))
   );
 
-  // let notesFromStorage = JSON.parse(localStorage.getItem("allNotes"));
+  const [priority, setPriority] = useState("");
 
   useEffect(() => {
     if (notesFromStorage) {
@@ -28,18 +28,7 @@ function App() {
   useEffect(() => {
     localStorage.setItem("allNotes", JSON.stringify(notes));
     setNotesFromStorage(JSON.parse(localStorage.getItem("allNotes")));
-
-    // console.log(notesFromStorage);
   }, [notes]);
-
-  // useEffect(() => {
-  //   localStorage.setItem("allNotes", JSON.stringify(notes));
-  //   console.log(notesFromStorage);
-  //   // if (notesFromStorage) {
-  //   //   setNotes(notesFromStorage);
-  //   // }
-  //   // console.log(notesFromStorage);
-  // }, [notes]);
 
   function handleChange(e) {
     setNoteInput(e.target.value);
@@ -47,22 +36,13 @@ function App() {
 
   function addNote(event) {
     event.preventDefault();
-    setNotes((prev) => [...prev, noteInput]);
-
-    // console.log(notes);
+    setNotes((prev) => [...prev, { note: noteInput, priority: priority }]);
   }
 
-  // useEffect(() => {
-  //   localStorage.setItem("allNotes", JSON.stringify(notes));
-  //   console.log(notes);
-  //   console.log(notesFromStorage);
-  // }, [notes]);
+  function addPriority(priority) {
+    setPriority(priority);
+  }
 
-  // function addNote(data) {
-  //   setNotes((prev) => {
-  //     return [...prev, data];
-  //   });
-  // }
   return (
     <div className="app">
       <Link to="/">
@@ -79,9 +59,36 @@ function App() {
           <div className="task--input--section">
             <span className="priority--section">
               <p>Priority:</p>
-              <button className="low--priority">LOW</button>
-              <button className="medium--priority">MEDIUM</button>
-              <button className="high--priority">HIGH</button>
+              <button
+                onClick={() => addPriority("low")}
+                className={
+                  priority === "low"
+                    ? "priority low--button low--reverse"
+                    : "priority low--button"
+                }
+              >
+                LOW
+              </button>
+              <button
+                onClick={() => addPriority("medium")}
+                className={
+                  priority === "medium"
+                    ? "priority medium--button medium--reverse"
+                    : "priority medium--button"
+                }
+              >
+                MEDIUM
+              </button>
+              <button
+                onClick={() => addPriority("high")}
+                className={
+                  priority === "high"
+                    ? "priority high--button high--reverse"
+                    : "priority high--button"
+                }
+              >
+                HIGH
+              </button>
             </span>
             <form className="add--section" onSubmit={addNote}>
               <input type="text" onChange={handleChange} />

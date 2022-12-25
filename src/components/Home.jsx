@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { NoteContext } from "./NoteContext";
+import { nanoid } from "nanoid";
 
 // import data from "./data";
 import Note from "./Note";
@@ -11,7 +12,7 @@ export default function Home(props) {
 
   const notesExampleElem = notes.map((item) => {
     // console.log(item);
-    return <Note info={item.task} />;
+    return <Note info={item.task} key={item.id} priority={item.priority} />;
   });
 
   // console.log(props.newNotes);
@@ -19,13 +20,9 @@ export default function Home(props) {
   const userNotes =
     props.newNotes &&
     props.newNotes.map((item) => {
-      return <Note info={item} />;
+      // console.log(item.note);
+      return <Note info={item.note} key={nanoid()} priority={item.priority} />;
     });
-
-  // const noteElem = data.map((item) => {
-  //   // console.log(item);
-  //   return <Note info={item} key={item.id} />;
-  // });
 
   return (
     <div>
