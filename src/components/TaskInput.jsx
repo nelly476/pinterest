@@ -1,5 +1,6 @@
 import react, { useEffect, useState, useRef } from "react";
 import WarningModal from "../components/WarningModal";
+import { nanoid } from "nanoid";
 
 export default function TaskInput({ getNewNote }) {
   const [noteInput, setNoteInput] = useState("");
@@ -13,9 +14,11 @@ export default function TaskInput({ getNewNote }) {
   const inputRef = useRef(null);
 
   useEffect(() => {
+    localStorage.setItem("allNotes", JSON.stringify(notes));
     if (notesFromStorage) {
       setNotes(notesFromStorage);
       getNewNote(notesFromStorage);
+      console.log(notesFromStorage);
     }
   }, []);
 
@@ -35,7 +38,10 @@ export default function TaskInput({ getNewNote }) {
     event.preventDefault();
     if (priority) {
       inputRef.current.focus();
-      setNotes((prev) => [...prev, { note: noteInput, priority: priority }]);
+      setNotes((prev) => [
+        ...prev,
+        { note: noteInput, priority: priority, finished: false, id: nanoid() },
+      ]);
       setNoteInput("");
       setShowModal(false);
     } else {
@@ -101,3 +107,5 @@ export default function TaskInput({ getNewNote }) {
     // </div>
   );
 }
+
+// JSON.parse(localStorage.getItem("allNotes"));

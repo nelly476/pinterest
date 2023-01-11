@@ -163,11 +163,12 @@ button:hover {
   column-gap: 0.7em;
   padding-left: 1em;
   border-radius: 8px;
-  width: 60%;
+  width: 50%;
   margin: 1.2em auto;
   -webkit-box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.29);
   -moz-box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.29);
   box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.29);
+  position: relative;
 }
 
 .high {
@@ -186,6 +187,15 @@ button:hover {
 .fa-square {
   font-size: 1.4em;
   color: #29d71c;
+}
+
+.fa-trash-can {
+  position: absolute;
+  right: 1em;
+}
+
+.fa-trash-can:hover {
+  opacity: 0.6;
 }
 
 i,
